@@ -1,4 +1,4 @@
-c<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -12,9 +12,30 @@ c<!DOCTYPE html>
                 background-color:yellow;
             }
 
-            li.my-list{
-                background-color:orange
+            li.new-list,div#new-div{
+                background-color:blue;
             }
+
+            div.grandkids li{
+                background-color:red;
+            }
+
+            li.my-list{
+                background-color: orange;
+            }
+
+            ul.kids>li{
+                background-color:green;
+            }
+
+            .add-background{
+                background-color:gold;
+            }
+
+            .add-border{
+                border:1px solid black;
+            }
+
         </style>
     </head>
     <body>
@@ -27,6 +48,9 @@ c<!DOCTYPE html>
                 <li><a href="#id">id</a></li>
                 <li><a href="#class">class</a></li>
                 <li><a href="#compound">compound</a></li>
+                <li><a href="#descendant">descendant</a></li>
+                <li><a href="#child">child</a></li>
+
             </ul>
         </nav> 
     </header>           
@@ -42,14 +66,13 @@ c<!DOCTYPE html>
     background-color:yellow;
 }</code></pre>
 
-
             <p>Here's what it looks like:</p>
             <div id="id-div">Inside my-div</div>
         </fieldset>
 
         <fieldset>
             <legend><a id="class">class</a></legend>
-            <p>classes can be applied to more than one item on a page</p>
+            <p>classes can be applied to more than item on a page</p>
             <p>Here's how we hook a class attribute to an element:</p>
             <pre><code>class="my-list"</code></pre>
             <p>Here's how the CSS is applied to the element:</p>
@@ -68,6 +91,84 @@ c<!DOCTYPE html>
             </div>
         </fieldset>
 
+        <fieldset>
+            <legend><a id="compound">compound</a></legend>
+            <p>A compound selector allows more than one selector block to be seperated by a comma</p>
+            <p>Here's how the CSS is applied to the element:</p>
+            <pre><code>li.new-list,div#new-div,{
+    background-color:blue;
+}</code></pre>
+
+
+            <p>Here's what it looks like:</p>
+            <div id="new-div">Inside new-div</div>
+            <div>
+                <ul>
+                    <li class="new-list">I'm inside new-list</li>
+                    <li class="new-list">I'm inside new-list</li>
+                    <li class="new-list">I'm inside new-list</li>
+                </ul>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend><a id="descendant">descendant</a></legend>
+            <p>A descendant selector effects all elements inside the current element, at any level</p>
+            <p>Here's how the CSS is applied to the element:</p>
+            <pre><code>li.new-list,div#new-div,{
+    background-color:red;
+}</code></pre>
+
+
+            <p>Here's what it looks like:</p>
+
+            <div class="grandkids">
+                <ul>
+                    <li>I'm in the grandkids list</li>
+                    <li>I'm in the grandkids list</li>
+                    <li>I'm in the grandkids list</li>
+                </ul>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend><a id="child">child</a></legend>
+            <p>A child selector allows us to access the next immediaate elements inside the current element</p>
+            <p>Here's how the CSS is applied to the element:</p>
+            <pre><code>li.new-list,div#new-div,{
+    background-color:green;
+}</code></pre>
+
+
+            <p>Here's what it looks like:</p>
+
+            <div>
+                <ul class="kids">
+                    <li>I'm in the kids list</li>
+                    <li>I'm in the kids list</li>
+                    <li>I'm in the kids list</li>
+                </ul>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend><a id="multiple">multiple</a></legend>
+            <p>We can add more than one class to an element</p>
+            <p>Here's how we hook a class attribute to an element:</p>
+            <pre><code>class="add-background add-border"</code></pre>
+
+
+
+            <p>Here's what it looks like:</p>
+            <div>
+                <ul>
+                    <li class="add-background add-border">I'm inside an li with multiple classes</li>
+                    <li class="add-background add-border">I'm inside an li with multiple classes</li>
+                    <li class="add-background add-border">I'm inside an li with multiple classes</li>
+                </ul>
+            </div>
+        </fieldset>
+
         <footer class="page-footer">
             <p><small>&copy; 2023 by 
                 NAME HERE, All Rights Reserved ~ 
@@ -81,4 +182,3 @@ c<!DOCTYPE html>
         </script>
     </body>
 </html>
-
